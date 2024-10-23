@@ -38,18 +38,18 @@ VALUES
 	(3, 'Tri Thức', '789 Ngã Tư Sách, Quận 5, TP.HCM');
 
 -- Add Random Book Information
-INSERT INTO Book (Book_id, Author_name, Genre, Price, Title, Publish_date, Publisher_id, Author_id)
+INSERT INTO Book (Book_id, Author_name, Genre, Price, Title, Publish_date, Publisher_id, Author_id, Conditions)
 VALUES
-    (1000000000011, 'Alice Smith', 'Fiction', 100000, 'The Whispering Pines', '2015-05-20', 1, 1),
-    (1000000000012, 'John Doe', 'Science Fiction', 150000, 'Journey to the Stars', '2018-07-15', 2, 2),
-    (1000000000013, 'Emily Johnson', 'Fantasy', 200000, 'Dragonfire Chronicles', '2020-10-05', 3, 4),
-    (1000000000014, 'Michael Brown', 'Mystery', 100000, 'The Lost Treasure', '2017-11-11', 3, 4),
-    (1000000000015, 'Sarah Davis', 'Romance', 20000, 'Love in the Time of Chaos', '2021-01-01', 2, 1),
-    (1000000000016, 'William Wilson', 'Thriller', 200000, 'The Final Countdown', '2019-03-30', 1, 2),
-    (1000000000017, 'Jessica Lee', 'Horror', 300000, 'Nightmare Alley', '2022-02-14', 2, 1),
-    (1000000000018, 'David Miller', 'Biography', 200000, 'Life of a Legend', '2016-09-09', 1, 2),
-    (1000000000019, 'Laura Garcia', 'Historical Fiction', 100000, 'Echoes of the Past', '2018-12-12', 3, 4),
-    (1000000000020, 'Robert Martinez', 'Non-Fiction', 150000, 'Understanding the Universe', '2023-08-20', 3, 2);
+    (1000000000011, 'Alice Smith', 'Fiction', 100000, 'The Whispering Pines', '2015-05-20', 1, 1, 'Online'),
+    (1000000000012, 'John Doe', 'Science Fiction', 150000, 'Journey to the Stars', '2018-07-15', 2, 2, 'New'),
+    (1000000000013, 'Emily Johnson', 'Fantasy', 200000, 'Dragonfire Chronicles', '2020-10-05', 3, 4, 'Online'),
+    (1000000000014, 'Emily Johnson', 'Mystery', 100000, 'The Lost Treasure', '2017-11-11', 3, 4, 'Used'),
+    (1000000000015, 'Alice Smith', 'Romance', 20000, 'Love in the Time of Chaos', '2021-01-01', 2, 1, 'Online'),
+    (1000000000016, 'John Doe', 'Thriller', 200000, 'The Final Countdown', '2019-03-30', 1, 2, 'Used'),
+    (1000000000017, 'Alice Smith', 'Horror', 300000, 'Nightmare Alley', '2022-02-14', 2, 1, 'New'),
+    (1000000000018, 'John Doe', 'Biography', 200000, 'Life of a Legend', '2016-09-09', 1, 2, 'New'),
+    (1000000000019, 'Emily Johnson', 'Historical Fiction', 100000, 'Echoes of the Past', '2018-12-12', 3, 4, 'Used'),
+    (1000000000020, 'John Doe', 'Non-Fiction', 150000, 'Understanding the Universe', '2023-08-20', 3, 2, 'New');
 
 -- Add Order --
 INSERT INTO orders(Order_id, Total_money, Order_date, Customer_id)

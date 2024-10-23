@@ -48,6 +48,7 @@ CREATE TABLE Book(
 	Publish_date DATE NOT NULL,
 	Publisher_ID NUMERIC(6,0),
 	Author_ID NUMERIC(10,0),
+	Conditions TEXT NOT NULL,
 	
 	FOREIGN KEY (Publisher_ID) REFERENCES Publisher(Publisher_ID) ON DELETE SET NULL,
 	FOREIGN KEY (Author_ID) REFERENCES Author(Author_ID) ON DELETE SET NULL
