@@ -7,12 +7,12 @@ GRANT SELECT ON TABLE app_e_bookstore.book, app_e_bookstore.orders, app_e_bookst
 CREATE ROLE DB_author;
 GRANT CONNECT ON DATABASE e_bookstore TO DB_author;
 GRANT USAGE ON SCHEMA app_e_bookstore TO DB_author;
-GRANT SELECT ON TABLE app_e_bookstore.book TO DB_author;
+GRANT SELECT ON TABLE app_e_bookstore.book, app_e_bookstore.order_item TO DB_author;
 --DB_Publisher--
 CREATE ROLE DB_Publisher;
 GRANT CONNECT ON DATABASE e_bookstore TO DB_Publisher;
 GRANT USAGE ON SCHEMA app_e_bookstore TO DB_Publisher;
-GRANT SELECT ON TABLE app_e_bookstore.book, app_e_bookstore.author TO DB_Publisher;
+GRANT SELECT ON TABLE app_e_bookstore.book, app_e_bookstore.author, app_e_bookstore.order_item TO DB_Publisher;
 --DB_admin--
 CREATE ROLE DB_admin;
 GRANT CONNECT ON DATABASE e_bookstore TO DB_admin;
