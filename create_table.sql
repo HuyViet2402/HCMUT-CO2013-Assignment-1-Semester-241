@@ -59,7 +59,7 @@ CREATE TABLE Order_item(
 	Order_ID NUMERIC(13,0) NOT NULL,
 	Book_ID NUMERIC(13,0) NOT NULL,
 	Quantity NUMERIC CHECK(Quantity > 0),
-	Discount NUMERIC(2,-2) CHECK(Discount >= 0 and Discount <= 1),
+	Discount NUMERIC(3,-2) CHECK(Discount >= 0 and Discount <= 1),
 	
 	FOREIGN KEY (Order_ID) REFERENCES Orders(Order_ID) ON DELETE CASCADE,
 	FOREIGN KEY (Book_ID) REFERENCES Book(Book_ID) ON DELETE CASCADE
