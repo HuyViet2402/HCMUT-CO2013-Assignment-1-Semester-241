@@ -320,50 +320,31 @@ The assignment files must be submitted on BKEL. Therefore, groups should pay att
     \begin{enumerate}
         \item Person:
             \begin{itemize}
-                \item Phone Number: A contact number for the person.
-                \item Email: The person’s email address.
                 \item ID: A unique identifier for each person in the database. 
-                \item Name: The full name of the person
-                    \begin{itemize}
-                        \item[+] First\_name: The person's first name.
-                        \item[+] Middle\_name: The person's middle name
-                        \item[+] Last\_name: The person's last name.
-                    \end{itemize}
             \end{itemize}
         \item Book:
             \begin{itemize}
-                \item Book\_ID: A unique identifier for each book in the database, usually a numeric or alphanumeric value.
-                \item Tittle: The name of the book.
-                \item Genre: The category or type of literature the book falls under.
-                \item Author\_name: The name of the person or people who wrote the book.
-                \item Publish\_date: The date when the book was published.
-                \item Prices: The cost of the book in VND
-                \item Conditions: The state of the book
+                \item Book\_ID: A unique identifier for each book in the database
             \end{itemize}
         \item Author:
             \begin{itemize}
-                \item Number\_of\_books: The total number of books written by the author.
+                \item Author\_ID: A unique identifier for each author in the database. 
             \end{itemize}
         \item Customer:
             \begin{itemize}
-                \item Money\_spent: The total money spent on buying books
+                \item Customer\_ID: A unique identifier for each customer in the database. 
             \end{itemize}
         \item Publisher:
             \begin{itemize}
                 \item Publisher\_ID: A unique identifier for each publisher in the database. 
-                \item Address: The location of the publisher.
-                \item Publisher\_name: The name of the publishing company or individual publisher responsible for producing the book
             \end{itemize}
         \item Order:
             \begin{itemize}
                 \item Order\_ID: A unique identifier for each order in the database
-                \item Order\_date: The date when the order was placed
-                \item Total\_money: The total amount of money for the order
             \end{itemize}
         \item Order\_item:
             \begin{itemize}
-                \item Discount: The amount or percentage of discount applied to the item.
-                \item Quantity: The number of units of the item included in the order.
+                \item Order\_ID: A unique identifier for each order in the database, use to track which order the ordered item belong to
             \end{itemize}
     \end{enumerate}
     \subsection{Identify constraints.}
@@ -443,7 +424,7 @@ The assignment files must be submitted on BKEL. Therefore, groups should pay att
         \caption{Diagram of E-bookstore's relational database schema.} 
         %\label{fig:my_label} 
         \end{figure}
-    
+    \newpage
     \subsection{Define the relational database schema on the chosen and installed DBMS. Define user groups, the corresponding permissions for each group, and implement them on the DBMS}
         \begin{enumerate}
             \item DB\_Customer:
