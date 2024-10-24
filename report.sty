@@ -1,0 +1,482 @@
+\documentclass[a4paper]{article}
+\usepackage{a4wide,amssymb,epsfig,latexsym,multicol,array,hhline,fancyhdr}
+\usepackage{vntex}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{lastpage}
+\usepackage[lined,boxed,commentsnumbered]{algorithm2e}
+\usepackage{enumerate}
+\usepackage{color}
+\usepackage{graphicx}							% Standard graphics package
+\usepackage{array}
+\usepackage{tabularx, caption}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{rotating}
+\usepackage{graphics}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{epsfig}
+\usepackage{tikz}
+\usepackage{framed}
+\usepackage[listings,theorems]{tcolorbox}
+\usepackage{lineno}
+\usepackage{listings}
+\usetikzlibrary{arrows,snakes,backgrounds}
+\usepackage{hyperref}
+\usepackage{tocloft}
+\hypersetup{urlcolor=blue,linkcolor=black,citecolor=black,colorlinks=true} 
+%\usepackage{pstcol} 								% PSTricks with the standard color package
+
+\newtheorem{theorem}{{\bf Theorem}}
+\newtheorem{property}{{\bf Property}}
+\newtheorem{proposition}{{\bf Proposition}}
+\newtheorem{corollary}[proposition]{{\bf Corollary}}
+\newtheorem{lemma}[proposition]{{\bf Lemma}}
+
+\AtBeginDocument{\renewcommand*\contentsname{Contents}}
+\AtBeginDocument{\renewcommand*\refname{References}}
+%\usepackage{fancyhdr}
+\setlength{\headheight}{40pt}
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\fancyhead[L]{
+ \begin{tabular}{rl}
+    \begin{picture}(25,15)(0,0)
+    \put(0,-8){\includegraphics[width=8mm, height=8mm]{hcmut.png}}
+    %\put(0,-8){\epsfig{width=10mm,figure=hcmut.eps}}
+   \end{picture}&
+	%\includegraphics[width=8mm, height=8mm]{hcmut.png} & %
+	\begin{tabular}{l}
+		\textbf{\bf \ttfamily University of Technology, Ho Chi Minh City}\\
+		\textbf{\bf \ttfamily Faculty of Computer Science and Engineering}
+	\end{tabular} 	
+ \end{tabular}
+}
+\fancyhead[R]{
+	\begin{tabular}{l}
+		\tiny \bf \\
+		\tiny \bf 
+	\end{tabular}  }
+\fancyfoot{} % clear all footer fields
+\fancyfoot[L]{\scriptsize \ttfamily Assignment Report for Database system - Academic year 20234 - 2025}
+\fancyfoot[R]{\scriptsize \ttfamily Page {\thepage}/\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0.3pt}
+
+
+%%%
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{3}
+\makeatletter
+\newcounter {subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection .\@alph\c@subsubsubsection}
+\newcommand\subsubsubsection{\@startsection{subsubsubsection}{4}{\z@}%
+                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {1.5ex \@plus .2ex}%
+                                     {\normalfont\normalsize\bfseries}}
+\newcommand*\l@subsubsubsection{\@dottedtocline{3}{10.0em}{4.1em}}
+\newcommand*{\subsubsubsectionmark}[1]{}
+\makeatother
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{%frame=tb,
+  language=python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=left,
+  numbersep=5pt,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+\captionsetup[table]{name=\textbf{Table}}
+%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\begin{titlepage}
+\begin{center}
+VIETNAM NATIONAL UNIVERSITY, HO CHI MINH CITY \\
+UNIVERSITY OF TECHNOLOGY \\
+FACULTY OF COMPUTER SCIENCE AND ENGINEERING
+\end{center}
+
+\vspace{1cm}
+\begin{figure}[h!]
+\begin{center}
+     \includegraphics[width=4cm]{hcmut.png}
+\end{center}
+\vspace{0.5cm}
+\end{figure}
+
+\begin{center}
+\begin{tabular}{c}
+\\
+\multicolumn{1}{l}{\textbf{{\Large DATABASE SYSTEMS (CO2014)}}}\\
+~~\\
+\hline
+\\
+\multicolumn{1}{l}{\textbf{{\Large Assignment (Semester: 241, Group: 4)}}}\\
+\\
+\textbf{{\Huge E-BOOKSTORE}}\\
+\\
+\\
+\hline
+\end{tabular}    
+\end{center}
+\vspace{0.5 cm}
+
+\begin{table}[h]
+\begin{tabular}{rrl}
+\hspace{2 cm} 
+& \large Instructor: & \large   Do Thanh Thai, \textit{HCMUT}\\
+\\
+& \large Students: & \large Nguyen Thien Loc  - 2252460\\
+&   & \large Nguyen Tran Huy Viet  - 2252906\\
+&   & \large Tran Trung Vinh - 2252914\\
+\end{tabular}
+\end{table}
+\vspace{4 cm} %Should change for each report
+\begin{center}
+    \footnotesize{HO CHI MINH CITY, OCTOBER 2024}
+\end{center}
+\end{titlepage}
+%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\tableofcontents
+\newpage
+\listoffigures
+%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\begin{center}
+    \textbf{ASSIGNMENT}
+\end{center}
+\section{Overview}
+    \subsection{\textbf{\textit{General information about the topic}}}
+    Within the scope of the course, the following 05 topics are proposed:
+    \begin{itemize}
+        \item[-] \underline{Topic 1:} Learning/Teaching
+        \item[-] \underline{Topic 2:} Multiple-choice Questions and Exams
+        \item[-] \underline{Topic 3:} Hospital
+        \item[-] \underline{Topic 4:} E-Bookstore
+        \item[-] \underline{Topic 5:} Publication
+    \end{itemize}
+Each topic has a mandatory business description and is required to develop an application program to support these operations. Additional operations and binding details may be proposed during the implementation of the topic.\\
+\\
+Each topic supports data requirements for students to practice conceptual design and then proceed to logical design and specific implementation on a database management system (DBMS). The development of a complete application on the selected DBMS is also required for each topic. Therefore, each topic is divided into 2 parts:
+\begin{itemize}
+    \item[-] \underline{Part 1 (\textbf{\textit{Assignment \# 1}}):} Conceptual design, logical design, database implementation on a DBMS, and learning and using technology to develop applications on the selected DBMS.
+    \item[-] \underline{Part 2 (\textbf{\textit{Assignment \# 2}}):} Complete the database by achieving database schema normalization and database security, and develop an application program with the completed database on a DBMS.
+\end{itemize}
+
+The contents carried out for each topic are aligned with the course learning outcomes as described in the course syllabus.
+    \subsection{\textbf{\textit{Guidelines for implementing the topic:}}}
+Each topic is carried out by \textbf{a group of no more than 4 members}. Members and topics for each group are assigned \textbf{randomly} by the instructor.\\
+    \\
+Sample data for illustration in each topic is prepared by each group, ensuring that the described constraints are met. The contents that need to be implemented are detailed for each topic. Each group is responsible for its own task assignments.\\
+\\
+Note that group activities are recorded in the practical assessment and group reports.
+
+    \subsection{\textbf{\textit{Evaluation}}}
+        \begin{enumerate}[A]
+            \item \underline{Requirements for Assignment \#1:}
+                \begin{enumerate}[1]
+                    \item List the strong entity types and the linking relationship types.
+                    \item List the weak entity types and the corresponding strong entity types that define the relationships.
+                    \item Identify the key attributes and their descriptions for entities and relationships types.
+                    \item Identify constraints.
+                    \item (BONUS) Expand the data request (e.g., security, etc.).
+                    \item Sketch a diagram of entities and relationships.
+                    \item Mapping the entity-relationship schema to a relational database schema, along with specific definitions of the constraints.
+                    \item Choose and install a DBMS (Oracle, MS SQL Server, MySQL, PostgreSQL, etc.).
+                    \item Define the relational database schema on the chosen and installed DBMS. Define user groups, the corresponding permissions for each group, and implement them on the DBMS.
+                    \item Write SQL statements.
+                    \item Prepare the technology for developing the database application (Front-end/Back-end).
+                    \item Prepare the report and presentation.
+                \end{enumerate}
+            \item \underline{Requirements for Assignment \#2:}
+                \begin{enumerate}[1]
+                    \item Write Functions/Procedures/Assertions/Triggers.
+                    \item Define user groups and assign permissions at the application level.
+                    \item Define the architecture for the application.
+                    \item (BONUS) Detailed design for the application.
+                    \item Normalize the schema to BCNF form for the database schema.
+                    \item (BONUS) Compare the data in the database with the data in files such as text files when developing the application for the assignment, illustrating the update of data related to semantic constraints in the topic: (1) The database is checked for consistency with the constraints implemented in the DBMS, (2) The files are checked for consistency with the constraints implemented in the application program.
+                    \item  (BONUS) Implement indexing => illustrate measuring and comparing execution time with large demo data: (1) query without indexing, (2) query with indexing.
+                    \item Develop a complete application.
+                    \item Prepare the report.
+                \end{enumerate}
+            \item \underline{Requirements for the report:}
+                \begin{enumerate}[1]
+                    \item \textbf{\textit{Report for Assignment \#1:}}
+                        \begin{itemize}
+                            \item[-] Technology report in the following sections \textbf{A.1.5 and A.1.8}: groups \textbf{prepare and submit a video on BKEL in week 5}. The duration of the video \textbf{should not exceed 60 minutes}. The file format should be \textbf{mp4 or webm}. The file name must include the \textbf{group name and the student ID list} of each member in the group
+                            \item[-] Report the requirements in the following sections: \textbf{A.1.1-A.1.4, A.1.6-A.1.7, A.1.9-A.1.10} through the weeks from \textbf{week 1 to week 5} in the classroom. Groups need to prepare as they will be working on group assignments, but during the presentation in the classroom, any member or any member of the group may be assigned to present the report. \textit{A quick quiz in the classroom} will also be conducted for these sections.
+                            \item[-] \textbf{Summary report:}
+                                \begin{itemize}
+                                    \item[+] Groups prepare and \textbf{submit the PDF file for Assignment \#1 on BKEL 2 days before the presentation in class}. The content of the PDF file includes the \textbf{assignment and the results in section A.1}. Extensions (BONUS) are encouraged. The file name must include the \textbf{group name and the student ID list} of each member in the group. 
+                                    \item[+] After that, the groups will present \textbf{in class during week 6}. Groups can choose the format of the presentation: presentation slides, live demo, drawings, using a whiteboard, etc. Each group has \textbf{10 minutes to present}. Each presentation will be evaluated by the supervising instructor and the other groups. Each group will have \textbf{5 minutes to explain and answer questions}. The responsibility for asking questions will be assigned \textbf{randomly to 2 groups among the remaining groups}. 
+                                    \item[+] Requirements for the \textbf{presentation content of Assignment \#1:}
+                                        \begin{flushleft}
+                                            15\%: \textit{A brief description of the application program for the topic: objectives, significance, characteristics, and data requirements of the user groups.}\\[0.25 cm] 
+                                            60\%: \textit{A brief description of the development part of the application program for the topic: introduction to the conceptual design (20\%), logical design (20\%), choice of technology, installations on the DBMS, and related frameworks that the group has chosen and accomplished (20\%).}\\[0.25 cm] 
+                                            15\%: \textit{A brief description of the self-assessment of the results achieved: conceptual (5\%), logical (5\%), technology (5\%).}\\[0.25 cm] 
+                                            10\%: \textit{A brief description of the future development direction to complete the application program for the topic.}
+                                        \end{flushleft}
+                                    \item[+] Requirements for the \textbf{presentation of Assignment \#1:}
+                                        \begin{flushleft}
+                                            20\%: \textit{Express confidence and clarity.}\\[0.25 cm] 
+                                            20\%: \textit{Dynamic and creative presentation style.}\\[0.25 cm] 
+                                            20\%: \textit{Even distribution of presentation tasks, with smooth coordination.}\\[0.25 cm] 
+                                            10\%: \textit{Time management during the presentation.}\\[0.25 cm] 
+                                            20\%: \textit{Answering questions (2 main questions, 10\% for each main question).}\\[0.25 cm] 
+                                            10\%: \textit{Asking questions (each group is assigned to ask questions for 2 groups, 5\% for each assigned group).}
+                                        \end{flushleft}
+                                \end{itemize}
+                        \end{itemize}
+                    \item \textbf{\textbf{Report for Assignment \#2}}
+                        \begin{itemize}
+                            \item[-] Report the requirements in sections: \textbf{ A.2.1-A.2.3, A.2.5, and A.2.8} through the weeks from \textbf{week 7 to week 9} in the classroom. Groups need to prepare as they will be working on group assignments, but during the presentation in the classroom, any member or any member of the group may be assigned to present the report. A quick quiz in the classroom will also be conducted for these sections.
+                            \item[-] \textbf{Summary report:} Groups prepare and submit a \textbf{PDF file and a demo video file on BKEL 2 days before the presentation in class}. Then, they will \textbf{present in class during week 10}. The \textbf{content of the PDF file includes the results in sections A.1 and A.2}. The \textbf{content of the video is the demo of the application program} developed by the group. The duration of the video \textbf{should not exceed 60 minutes}. The file format \textbf{should be mp4 or webm}. The file name of each submitted file must \textbf{include the group name and the student ID list of each member in the group}. Extensions (BONUS) are encouraged.
+                            \item[-] Groups can choose the format of the presentation in class: presentation slides, live demo, drawings, using a whiteboard, etc. Each group has \textbf{10 minutes to present}. Each presentation will be evaluated by the supervising instructor and the other groups. Each group will have \textbf{5 minutes to explain and answer questions}. The responsibility for asking questions will be assigned \textbf{randomly to 2 groups among the remaining groups}.
+                                \begin{itemize}
+                                    \item[+] Requirements for the \textbf{presentation content of Assignment  \#2:}
+                                         \begin{flushleft}
+                                            10\%: \textit{A brief description of the application program for the topic: objectives, significance of the application program.}\\[0.25 cm] 60\%: \textit{A brief description of the development part of the application program for the topic: introduction to the conceptual design (10\%), logical design (10\%), and the implementation that the group has accomplished (40\%).}\\[0.25 cm] 
+                                            20\%: \textit{A brief description of the self-assessment of the results achieved: conceptual (5\%), logical (5\%), technology (10\%).}\\[0.25 cm]
+                                            10\%: \textit{A brief description of the future development direction to complete the application program for the topic.}
+                                        \end{flushleft}
+                                    \item[+] Requirements for the \textbf{presentation of Assignment \#2:}
+                                         \begin{flushleft}
+                                            20\%: \textit{Express confidence and clarity.}\\[0.25 cm] 
+                                            20\%: \textit{Dynamic and creative presentation style.}\\[0.25 cm] 
+                                            20\%: \textit{Even distribution of presentation tasks, with smooth coordination.}\\[0.25 cm] 
+                                            10\%: \textit{Time management during the presentation.}\\[0.25 cm]
+                                            20\%: \textit{Answering questions (2 main questions, 10\% for each main question).}\\[0.25 cm] 
+                                            10\%: \textit{Asking questions (each group is assigned to ask questions for 2 groups, 5\% for each assigned group).}
+                                        \end{flushleft}
+                                \end{itemize}
+
+                        \end{itemize}
+                \end{enumerate}
+        \end{enumerate}
+    \subsection{\textbf{\textit{Disclaimer notes:}}}
+The processes described in the topics are to be used solely within the scope of the course and do not involve or utilize any private data of any entity or individual.\\
+\\
+The evaluation for Assignment \#1 and Assignment \#2 is planned but may be applied flexibly for different classes depending on the actual circumstances in each class.\\
+\\
+The assignment files must be submitted on BKEL. Therefore, groups should pay attention to the submission deadlines to ensure there are no risks associated with the files they have submitted, as BKEL automatically closes the submission page. Late submissions are not accepted. Submitting assignments via email is also not accepted.
+%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Assignment 1: The E-Bookstore}
+    \subsection{List the strong entity types and the linking relationship types}
+        \begin{enumerate}
+            \item Person:  
+                \begin{itemize}
+                    \item Customer
+                    \item Author
+                \end{itemize}
+                 A Person can be both Customer and Author.
+            \item Customer:
+                \begin{itemize}
+                    \item Order: A Customer can create multiple orders (1-N).
+                \end{itemize}
+            \item Book:
+                \begin{itemize}
+                    \item Author: A Book can be written by one Author (1-1).
+                    \item Publisher:  A Book can be published by one Publisher (1-1).
+                \end{itemize}
+            \item Author
+                \begin{itemize}
+                    \item Book: An Author can write one or more books (1-N).
+                \end{itemize}
+            \item Publisher
+                \begin{itemize}
+                    \item A Publisher can publish multiple books (1-N).
+                \end{itemize}
+            \item Order
+                \begin{itemize}
+                    \item Order\_Item: An Order can have many book (1-N).
+                \end{itemize}
+        \end{enumerate}
+    \subsection{List the weak entity types and the corresponding strong entity types that define the relationships}
+        \begin{enumerate}
+            \item Order\_item:
+                \begin{itemize}
+                    \item Book: An Order\_tem can contain one book (1-1)
+                    \item Order: An Order\_item can belong to one Order (1-1).
+                \end{itemize}
+        \end{enumerate}
+    \subsection{ Identify the key attributes and their descriptions for entities and relationships types.}
+    \begin{enumerate}
+        \item Person:
+            \begin{itemize}
+                \item Phone Number: A contact number for the person.
+                \item Email: The person’s email address.
+                \item ID: A unique identifier for each person in the database. 
+                \item Name: The full name of the person
+                    \begin{itemize}
+                        \item[+] First\_name: The person's first name.
+                        \item[+] Middle\_name: The person's middle name
+                        \item[+] Last\_name: The person's last name.
+                    \end{itemize}
+            \end{itemize}
+        \item Book:
+            \begin{itemize}
+                \item Book\_ID: A unique identifier for each book in the database, usually a numeric or alphanumeric value.
+                \item Tittle: The name of the book.
+                \item Genre: The category or type of literature the book falls under.
+                \item Author\_name: The name of the person or people who wrote the book.
+                \item Publish\_date: The date when the book was published.
+                \item Prices: The cost of the book in VND
+                \item Conditions: The state of the book
+            \end{itemize}
+        \item Author:
+            \begin{itemize}
+                \item Number\_of\_books: The total number of books written by the author.
+            \end{itemize}
+        \item Customer:
+            \begin{itemize}
+                \item Money\_spent: The total money spent on buying books
+            \end{itemize}
+        \item Publisher:
+            \begin{itemize}
+                \item Publisher\_ID: A unique identifier for each publisher in the database. 
+                \item Address: The location of the publisher.
+                \item Publisher\_name: The name of the publishing company or individual publisher responsible for producing the book
+            \end{itemize}
+        \item Order:
+            \begin{itemize}
+                \item Order\_ID: A unique identifier for each order in the database
+                \item Order\_date: The date when the order was placed
+                \item Total\_money: The total amount of money for the order
+            \end{itemize}
+        \item Order\_item:
+            \begin{itemize}
+                \item Discount: The amount or percentage of discount applied to the item.
+                \item Quantity: The number of units of the item included in the order.
+            \end{itemize}
+    \end{enumerate}
+    \subsection{Identify constraints.}
+        \begin{enumerate}
+                    \item Person:
+            \begin{itemize}
+                \item Phone Number: NUMERIC with 10 digits, NOT NULL, UNIQUE.
+                \item Email: TEXT, NOT NULL, UNIQUE.
+                \item ID: NUMERIC at most 10 digits, PRIMARY KEY. 
+                \item Name:
+                    \begin{itemize}
+                        \item[+] First\_name: TEXT, NOT NULL.
+                        \item[+] Middle\_name: TEXT.
+                        \item[+] Last\_name: TEXT.
+                    \end{itemize}
+            \end{itemize}
+        \item Book:
+            \begin{itemize}
+                \item Book\_ID: PRIMARY KEY.
+                \item Tittle: TEXT, NOT NULL.
+                \item Genre: TEXT
+                \item Author\_name: TEXT, NOT NULL.
+                \item Publish\_date: Valid date type, NOT NULL.
+                \item Price: NUMERIC, at most 12 digits before decimal point and 3 digits after decimal point, currency: VND, NOT NULL (Price >= 0).
+                \item Conditions: TEXT, NOT NULL
+                \item Author\_ID: foreign key of Author\_ID attribute from author entity
+                \item Publisher\_ID: foreign key of Publisher\_ID attribute from publisher entity
+            \end{itemize}
+        \item Author:
+            \begin{itemize}
+                \item Number\_of\_books: NOT NULL (Number\_of\_books >= 1).
+                \item ID: foreign key of ID attribute from person entity
+            \end{itemize}
+        \item Customer:
+            \begin{itemize}
+                \item Money\_spent: NUMERIC, at most 12 digits before decimal point and 3 digits after decimal point, currency: VND, NOT NULL. (Money\_spent >= 0)
+                \item ID: foreign key of ID attribute from person entity
+            \end{itemize}
+        \item Publisher:
+            \begin{itemize}
+                \item Publisher\_ID: NUMERIC at most 6 digits, PRIMARY KEY.
+                \item Address: TEXT.
+                \item Publisher\_name: TEXT, NOT NULL.
+            \end{itemize}
+        \item Orders:
+            \begin{itemize}
+                \item Order\_ID: PRIMARY KEY.
+                \item Order\_date: Valid date type, NOT NULL.
+                \item Total\_money: NOT NULL (Total\_money >= 0).
+                \item ID: foreign key of ID attribute from customer entity
+            \end{itemize}
+        \item Order\_item:
+            \begin{itemize}
+                \item Discount: NUMERIC with 1 digit before decimal point and 2 digits after decimal point (Discount >= 0 and Discount <= 1)
+                \item Quantity: NUMERIC, NOT NULL (Quantity > 0)
+                \item Book\_ID: foreign key of Book\_ID attribute from book entity
+            \end{itemize}
+        \end{enumerate}
+
+
+
+
+    
+    \newpage
+    \subsection{Sketch a diagram of entities and relationships}
+        \begin{figure}[h]
+        \centering 
+        \includegraphics[width=17cm]{Diagram.drawio.png} 
+        \caption{E-bookstore diagram of entities and relationships} 
+        %\label{fig:my_label} 
+        \end{figure}
+    \newpage
+    \subsection{Mapping the entity-relationship schema to a relational database schema, along with specific definitions of the constraints}
+        \begin{figure}[h]
+        \centering 
+        \includegraphics[width=17cm]{Shema.drawio.png} 
+        \caption{Diagram of E-bookstore's relational database schema.} 
+        %\label{fig:my_label} 
+        \end{figure}
+    
+    \subsection{Define the relational database schema on the chosen and installed DBMS. Define user groups, the corresponding permissions for each group, and implement them on the DBMS}
+        \begin{enumerate}
+            \item DB\_Customer:
+                \begin{itemize}
+                    \item[-] Permissions: View book, orders, order\_item table.
+                    \item[-] This role represent customer. They can view books to buy, their own past and present orders.
+                \end{itemize}
+            \item DB\_Author:
+                \begin{itemize}
+                    \item[-] Permissions: View book, order\_item table.
+                    \item[-] This role represent author that want to cooperate with the bookstore. They can view the list of their own books that the store are selling. They can also view how well their book sell. 
+                \end{itemize}
+            \item DB\_Publisher:
+                \begin{itemize}
+                    \item[-] Permissions: View book, author, order\_item table
+                    \item[-] This role represent publisher that want to cooperate with the bookstore. They can view the list of books that they publish and the store are selling. They can also view how well their book sell and the list of authors that have book published under their name. 
+                \end{itemize}
+            \item DB\_Admin:
+                \begin{itemize}
+                    \item[-] Permissions: View all table, can edit all table (update, insert, truncate).
+                    \item[-] This role represent the admin that run the website of the store. They can view and edit all tables in the database.
+                \end{itemize}
+            \item DB\_technical:
+                \begin{itemize}
+                    \item[-] Permissions: All privilege on database.
+                    \item[-] This role represent the technical staff of the store. They have all the privilege on the database to maintain and configure the website
+                \end{itemize}
+        \end{enumerate}
+        \begin{figure}[h]
+        \centering 
+        \includegraphics[width=12cm]{login_group.PNG} 
+        \caption{Result after implement user group into pgAdmin 4} 
+        %\label{fig:my_label} 
+        \end{figure}
+%%%%%%%%%%%%%%%%%%%%%
+\end{document}
