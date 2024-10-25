@@ -1,16 +1,16 @@
 -- Add Person Information
 INSERT INTO person (Person_id, Email, Phone_number, First_name, Middle_name, Last_name)
 VALUES
-	(1, 'nguyen.van.a@example.com', '0912345678', 'Nguyễn', 'Văn', 'A'),
-	(2, 'tran.thi.b@example.com', '0923456789', 'Trần', 'Thị', 'B'),
-	(3, 'le.hoang.c@example.com', '0934567890', 'Lê', 'Hoàng', 'C'),
-	(4, 'pham.thanh.d@example.com', '0945678901', 'Phạm', 'Thanh', 'D'),
-	(5, 'hoang.minh.e@example.com', '0956789012', 'Hoàng', 'Minh', 'E'),
-	(6, 'do.thi.f@example.com', '0967890123', 'Đỗ', 'Thị', 'F'),
-	(7, 'ngo.ba.g@example.com', '0978901234', 'Ngô', 'Bá', 'G'),
-	(8, 'bui.thu.h@example.com', '0989012345', 'Bùi', 'Thu', 'H'),
-	(9, 'pham.hoang.i@example.com', '0990123456', 'Phạm', 'Hoàng', 'I'),
-	(10, 'vu.ngoc.j@example.com', '0910234567', 'Vũ', 'Ngọc', 'J');
+	(1, 'nguyen.van.a@example.com', '0912345678', 'Nguyen', 'Van', 'A'),
+	(2, 'tran.thi.b@example.com', '0923456789', 'Tran', 'Thi', 'B'),
+	(3, 'le.hoang.c@example.com', '0934567890', 'Le', 'Hoang', 'C'),
+	(4, 'pham.thanh.d@example.com', '0945678901', 'Pham', 'Thanh', 'D'),
+	(5, 'hoang.minh.e@example.com', '0956789012', 'Hoang', 'Minh', 'E'),
+	(6, 'do.thi.f@example.com', '0967890123', 'Do', 'Th', 'F'),
+	(7, 'ngo.ba.g@example.com', '0978901234', 'Ngo', 'Ba', 'G'),
+	(8, 'bui.thu.h@example.com', '0989012345', 'Bui', 'Thu', 'H'),
+	(9, 'pham.hoang.i@example.com', '0990123456', 'Pham', 'Hoang', 'I'),
+	(10, 'vu.ngoc.j@example.com', '0910234567', 'Vu', 'Ngoc', 'J');
 
 -- Add Author --
 INSERT INTO author (Author_id, Number_of_books)
@@ -33,9 +33,9 @@ VALUES
 -- Add Publisher--
 INSERT INTO publisher(Publisher_id, Publisher_name, Address)
 VALUES
-	(1, 'Sách Mới', '123 Đường Sách, Quận 1, TP.HCM'),
-	(2, 'Nhà Xuất Bản Văn Học', '456 Phố Sách, Quận 3, TP.HCM'),
-	(3, 'Tri Thức', '789 Ngã Tư Sách, Quận 5, TP.HCM');
+	(1, 'Sach moi', '123 Duong Sach, Quan 1, TP.HCM'),
+	(2, 'Nha Xuat Ban Van Hoc', '456 Pho Sach, Quan 3, TP.HCM'),
+	(3, 'Tri Thuc', '789 Nga Tu Sach, Quan 5, TP.HCM');
 
 -- Add Random Book Information
 INSERT INTO Book (Book_id, Author_name, Genre, Price, Title, Publish_date, Publisher_id, Author_id, Conditions)
